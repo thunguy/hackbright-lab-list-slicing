@@ -15,8 +15,12 @@ def custom_len(input_list):
         8
 
     """
+    count = 0
+    
+    for i in input_list:
+        count += 1
 
-    return 0
+    return count
 
 
 # For the next four exercises, you'll need to be clever and think about ways
@@ -43,7 +47,8 @@ def custom_append(input_list, value):
         True
 
     """
-
+    last_position = len(input_list)
+    input_list[last_position:last_position] = [value]
     pass
 
 
@@ -62,7 +67,7 @@ def custom_extend(input_list, second_list):
         True
 
     """
-
+    
     pass
 
 
@@ -81,6 +86,7 @@ def custom_insert(input_list, index, value):
 
     """
 
+    input_list[index:index] = [value]
     pass
 
 
@@ -99,6 +105,11 @@ def custom_remove(input_list, value):
         True
 
     """
+
+    for i, ele in enumerate(input_list):
+        if input_list[i] == value:
+            input_list[i:i + 1] = []
+            break
 
     pass
 
@@ -168,8 +179,7 @@ def custom_reverse(input_list):
         >>> multiples == [27, 24, 21, 18, 15, 12, 9, 6, 3, 0]
         True
 
-    """
-
+    """  
     pass
 
 
