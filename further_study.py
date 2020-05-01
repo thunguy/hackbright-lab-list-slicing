@@ -67,7 +67,9 @@ def custom_extend(input_list, second_list):
         True
 
     """
-    
+    end = len(input_list)
+    input_list[end:end] = second_list
+
     pass
 
 
@@ -129,8 +131,10 @@ def custom_pop(input_list):
         ['Jan', 'Feb']
 
     """
+    last_item = input_list[-1]
+    input_list[-1:] = []  
 
-    return None
+    return last_item
 
 
 def custom_index(input_list, value):
@@ -145,8 +149,10 @@ def custom_index(input_list, value):
         1
 
     """
-
-    return 0
+    for i, ele in enumerate(input_list):
+        if ele == value:
+            return i
+    return 
 
 
 def custom_count(input_list, value):
@@ -161,8 +167,13 @@ def custom_count(input_list, value):
         2
 
     """
+    count = 0
 
-    return 0
+    for i, ele in enumerate(input_list):
+        if ele == value:
+            count += 1
+
+    return count
 
 
 def custom_reverse(input_list):
@@ -180,6 +191,15 @@ def custom_reverse(input_list):
         True
 
     """  
+
+    # input_list[:] = input_list[::-1]
+
+    for i in range(len(input_list) // 2):
+        ele1 = input_list[i]
+        ele2 = input_list[-i - 1]
+        input_list[i] = ele2
+        input_list[-i - 1] = ele1
+
     pass
 
 
@@ -199,8 +219,12 @@ def custom_contains(input_list, value):
         True
 
     """
+    for ele in input_list:
+        if ele == value:
+            return True
 
-    return None
+
+    return False
 
 
 def custom_equality(some_list, another_list):
@@ -218,8 +242,14 @@ def custom_equality(some_list, another_list):
         False
 
     """
+    if len(some_list) != len(another_list):
+        return False
 
-    return None
+    else:
+        for i, ele in enumerate(some_list):
+            if some_list[i] != another_list[i]:
+                return False
+        return True
 
 
 # This is the part were we actually run the doctests.
